@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		949C362C28EEBECD0049BEDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C362B28EEBECD0049BEDE /* AppDelegate.swift */; };
 		949C362E28EEBECD0049BEDE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C362D28EEBECD0049BEDE /* SceneDelegate.swift */; };
-		949C363028EEBECD0049BEDE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C362F28EEBECD0049BEDE /* ViewController.swift */; };
+		949C363028EEBECD0049BEDE /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C362F28EEBECD0049BEDE /* SlideViewController.swift */; };
 		949C363328EEBECD0049BEDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949C363128EEBECD0049BEDE /* Main.storyboard */; };
 		949C363528EEBECD0049BEDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 949C363428EEBECD0049BEDE /* Assets.xcassets */; };
 		949C363828EEBECD0049BEDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949C363628EEBECD0049BEDE /* LaunchScreen.storyboard */; };
+		949C366328EF01260049BEDE /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C366228EF01260049BEDE /* BuyViewController.swift */; };
+		949C366528EF019A0049BEDE /* InPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C366428EF019A0049BEDE /* InPersonViewController.swift */; };
+		949C366728EF02170049BEDE /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C366628EF02170049BEDE /* BasketViewController.swift */; };
+		949C366928EF45010049BEDE /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C366828EF45010049BEDE /* ProductViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		949C362828EEBECD0049BEDE /* UIKitProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		949C362B28EEBECD0049BEDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		949C362D28EEBECD0049BEDE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		949C362F28EEBECD0049BEDE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		949C362F28EEBECD0049BEDE /* SlideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
 		949C363228EEBECD0049BEDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		949C363428EEBECD0049BEDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		949C363728EEBECD0049BEDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		949C363928EEBECD0049BEDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		949C366228EF01260049BEDE /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
+		949C366428EF019A0049BEDE /* InPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPersonViewController.swift; sourceTree = "<group>"; };
+		949C366628EF02170049BEDE /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		949C366828EF45010049BEDE /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +66,11 @@
 			children = (
 				949C362B28EEBECD0049BEDE /* AppDelegate.swift */,
 				949C362D28EEBECD0049BEDE /* SceneDelegate.swift */,
-				949C362F28EEBECD0049BEDE /* ViewController.swift */,
+				949C366628EF02170049BEDE /* BasketViewController.swift */,
+				949C366428EF019A0049BEDE /* InPersonViewController.swift */,
+				949C366228EF01260049BEDE /* BuyViewController.swift */,
+				949C362F28EEBECD0049BEDE /* SlideViewController.swift */,
+				949C366828EF45010049BEDE /* ProductViewController.swift */,
 				949C363128EEBECD0049BEDE /* Main.storyboard */,
 				949C363428EEBECD0049BEDE /* Assets.xcassets */,
 				949C363628EEBECD0049BEDE /* LaunchScreen.storyboard */,
@@ -160,8 +172,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				949C363028EEBECD0049BEDE /* ViewController.swift in Sources */,
+				949C366728EF02170049BEDE /* BasketViewController.swift in Sources */,
+				949C363028EEBECD0049BEDE /* SlideViewController.swift in Sources */,
+				949C366328EF01260049BEDE /* BuyViewController.swift in Sources */,
+				949C366928EF45010049BEDE /* ProductViewController.swift in Sources */,
 				949C362C28EEBECD0049BEDE /* AppDelegate.swift in Sources */,
+				949C366528EF019A0049BEDE /* InPersonViewController.swift in Sources */,
 				949C362E28EEBECD0049BEDE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
