@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// Начальный VC
+/// Начальный VC 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
