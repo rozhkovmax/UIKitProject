@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// Контроллер поиска
+/// Контроллер поискаs
 final class SearchViewController: UIViewController {
     
     // MARK: - Constants
