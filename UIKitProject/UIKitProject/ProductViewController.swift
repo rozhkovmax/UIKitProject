@@ -15,7 +15,7 @@ final class ProductViewController: UIViewController {
     }
     
     // MARK: - Visual Components
-    private lazy var productLable: UILabel = {
+    private lazy var productLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 115, y: 100, width: 200, height: 100)
         label.numberOfLines = 0
@@ -42,9 +42,9 @@ final class ProductViewController: UIViewController {
     
     // MARK: - Private Methods
     private func allMethod() {
-        productLable.text = productName
+        productLabel.text = productName
         productImageView.image = productImage 
-        view.addSubview(productLable)
+        view.addSubview(productLabel)
         view.addSubview(productImageView)
     }
 }

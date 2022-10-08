@@ -67,7 +67,7 @@ final class SearchViewController: UIViewController {
         return button
     }()
     
-    private lazy var queryOptionsLable: UILabel = {
+    private lazy var queryOptionsLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 15, y: 460, width: 290, height: 60)
         label.textColor = .white
@@ -76,7 +76,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var podsLable: UILabel = {
+    private lazy var podsLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 50, y: 510, width: 290, height: 60)
         label.textColor = .white
@@ -93,7 +93,7 @@ final class SearchViewController: UIViewController {
         return image
     }()
     
-    private lazy var careLable: UILabel = {
+    private lazy var careLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 50, y: 550, width: 290, height: 60)
         label.textColor = .white
@@ -110,7 +110,7 @@ final class SearchViewController: UIViewController {
         return image
     }()
     
-    private lazy var beatsLable: UILabel = {
+    private lazy var beatsLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 50, y: 590, width: 290, height: 60)
         label.textColor = .white
@@ -127,7 +127,7 @@ final class SearchViewController: UIViewController {
         return image
     }()
     
-    private lazy var iPhoneLable: UILabel = {
+    private lazy var iPhoneLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 50, y: 630, width: 290, height: 60)
         label.textColor = .white
@@ -144,7 +144,7 @@ final class SearchViewController: UIViewController {
         return image
     }()
     
-    private lazy var caseViewOne: UIView = {
+    private lazy var caseViewOneView: UIView = {
         let view = UIView()
         view.frame = CGRect(x: 15, y: 255, width: 150, height: 200)
         view.backgroundColor = .systemGray6
@@ -153,7 +153,7 @@ final class SearchViewController: UIViewController {
         return view
     }()
     
-    private lazy var caseViewTwo: UIView = {
+    private lazy var caseViewTwoView: UIView = {
         let view = UIView()
         view.frame = CGRect(x: 180, y: 255, width: 150, height: 200)
         view.backgroundColor = .systemGray6
@@ -162,7 +162,7 @@ final class SearchViewController: UIViewController {
         return view
     }()
     
-    private lazy var caseViewThree: UIView = {
+    private lazy var caseViewThreeView: UIView = {
         let view = UIView()
         view.frame = CGRect(x: 345, y: 255, width: 150, height: 200)
         view.backgroundColor = .systemGray6
@@ -171,7 +171,7 @@ final class SearchViewController: UIViewController {
         return view
     }()
     
-    private lazy var caseViewOneLable: UILabel = {
+    private lazy var caseViewOneLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 22, y: 100, width: 100, height: 100)
         label.textColor = .white
@@ -189,7 +189,7 @@ final class SearchViewController: UIViewController {
         return image
     }()
     
-    private lazy var caseViewTwoLable: UILabel = {
+    private lazy var caseViewTwoLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 22, y: 100, width: 100, height: 100)
         label.textColor = .white
@@ -207,7 +207,7 @@ final class SearchViewController: UIViewController {
         return image
     }()
     
-    private lazy var caseViewThreeLable: UILabel = {
+    private lazy var caseViewThreeLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 22, y: 100, width: 100, height: 100)
         label.textColor = .white
@@ -237,34 +237,34 @@ final class SearchViewController: UIViewController {
         view.addSubview(searchBar)
         view.addSubview(recentlyViewedLabel)
         view.addSubview(clearButton)
-        view.addSubview(queryOptionsLable)
-        view.addSubview(podsLable)
+        view.addSubview(queryOptionsLabel)
+        view.addSubview(podsLabel)
         view.addSubview(podsImageView)
-        view.addSubview(careLable)
+        view.addSubview(careLabel)
         view.addSubview(careImageView)
-        view.addSubview(beatsLable)
+        view.addSubview(beatsLabel)
         view.addSubview(beatsImageView)
-        view.addSubview(iPhoneLable)
+        view.addSubview(iPhoneLabel)
         view.addSubview(iPhoneImageView)
-        view.addSubview(caseViewOne)
-        view.addSubview(caseViewTwo)
-        view.addSubview(caseViewThree)
-        caseViewOne.addSubview(caseViewOneLable)
-        caseViewOne.addSubview(caseViewOneImageView)
-        caseViewTwo.addSubview(caseViewTwoLable)
-        caseViewTwo.addSubview(caseViewTwoImageView)
-        caseViewThree.addSubview(caseViewThreeLable)
-        caseViewThree.addSubview(caseViewThreeImageView)
+        view.addSubview(caseViewOneView)
+        view.addSubview(caseViewTwoView)
+        view.addSubview(caseViewThreeView)
+        caseViewOneView.addSubview(caseViewOneLabel)
+        caseViewOneView.addSubview(caseViewOneImageView)
+        caseViewTwoView.addSubview(caseViewTwoLabel)
+        caseViewTwoView.addSubview(caseViewTwoImageView)
+        caseViewThreeView.addSubview(caseViewThreeLabel)
+        caseViewThreeView.addSubview(caseViewThreeImageView)
         createTapRecognizer()
     }
     
     private func createTapRecognizer() {
-        caseViewOne.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
-        caseViewOne.tag = 1
-        caseViewTwo.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
-        caseViewTwo.tag = 2
-        caseViewThree.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
-        caseViewThree.tag = 3
+        caseViewOneView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
+        caseViewOneView.tag = 1
+        caseViewTwoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
+        caseViewTwoView.tag = 2
+        caseViewThreeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
+        caseViewThreeView.tag = 3
     }
     
     // MARK: - Private objc Methods
