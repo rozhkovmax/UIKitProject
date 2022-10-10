@@ -11,7 +11,6 @@ final class ProductViewController: UIViewController {
     
     // MARK: - Constants
     private enum Constants {
-        static let defaultImage = UIImage(systemName: "magnifyingglass")
         static let firstBarButtonItemImage = UIImage(systemName: "heart")
         static let secondBarButtonItemImage = UIImage(systemName: "square.and.arrow.up")
         static let compatibleImage = UIImage(systemName: "checkmark.circle.fill")
@@ -23,21 +22,6 @@ final class ProductViewController: UIViewController {
         static let orderLineOneText = "Заказ сегодня в течении дня, доставка"
         static let orderLineTwoText = "Чт 25 Фев - Бесплатно"
         static let orderLineThreeText = "Варинт доставки для местоположения: 115533"
-        static let watchImage = UIImage(named: "4")
-        static let watchOneImage = UIImage(named: "clock2")
-        static let watchTwoImage = UIImage(named: "1")
-        static let blackCaseImage = UIImage(named: "Image")
-        static let blackCaseOneImage = UIImage(named: "case2")
-        static let blackCaseTwoImage = UIImage(named: "case3")
-        static let brownCaseImage = UIImage(named: "2")
-        static let brownCaseOneImage = UIImage(named: "caseBrown2")
-        static let brownCaseTwoImage = UIImage(named: "caseBrown3")
-        static let iPhoneImage = UIImage(named: "iphone")
-        static let iPhoneOneImage = UIImage(named: "iPhone2")
-        static let iPhoneTwoImage = UIImage(named: "iphone 3")
-        static let firstRectImage = CGRect(x: 50, y: 0, width: 300, height: 300)
-        static let secondRectImage = CGRect(x: 465, y: 0, width: 300, height: 300)
-        static let thirdRectImage = CGRect(x: 840, y: 0, width: 300, height: 300)
         static let placeholderTextField = "0"
     }
     
@@ -69,14 +53,6 @@ final class ProductViewController: UIViewController {
         label.numberOfLines = 0
         label.textColor = .white
         return label
-    }()
-    
-    private lazy var productImageView: UIImageView = {
-        let image = UIImageView()
-        image.frame = CGRect(x: 50, y: 0, width: 300, height: 300)
-        image.contentMode = .scaleAspectFit
-        image.backgroundColor = .white
-        return image
     }()
     
     private lazy var firstBarButtonItem: UIBarButtonItem = {
@@ -203,20 +179,11 @@ final class ProductViewController: UIViewController {
         return label
     }()
     
-    private lazy var caseScrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.frame = CGRect(x: 10, y: 160, width: view.bounds.width, height: 300)
-        scrollView.indicatorStyle = .white
-        scrollView.isPagingEnabled = true
-        scrollView.contentSize = CGRect(x: 10, y: 160, width: 1200, height: 300).size
-        return scrollView
-    }()
+    private lazy var caseViewInScrollView = createProductView(caseNameImage: product.1)
     
     // MARK: - Public Properties
-    var productName = ""
-    var productPrice = ""
-    var productImage = Constants.defaultImage
-    
+    var product: (String, [String], String) = ("", [""], "")
+
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -225,10 +192,9 @@ final class ProductViewController: UIViewController {
     
     // MARK: - Private Methods
     private func allMethod() {
-        productNameOneLabel.text = productName
-        productNameTwoLabel.text = productName
-        productPriceLabel.text = productPrice
-        productImageView.image = productImage
+        productNameOneLabel.text = product.0
+        productNameTwoLabel.text = product.0
+        productPriceLabel.text = product.2
         createBarButtonItem()
         view.addSubview(productNameOneLabel)
         view.addSubview(productNameTwoLabel)
@@ -243,25 +209,21 @@ final class ProductViewController: UIViewController {
         view.addSubview(orderOneNameLabel)
         view.addSubview(orderTwoNameLabel)
         view.addSubview(orderThreeNameLabel)
-        view.addSubview(caseScrollView)
         view.addSubview(basketLabel)
         view.addSubview(basketTextField)
-        createBlackCaseImage()
-        createWatchImage()
-        createBrownCaseImage()
-        createIphoneCaseImage()
         notificationKeyboard()
         basketTextField.delegate = self
+        view.addSubview(caseViewInScrollView)
     }
     
     private func createBarButtonItem() {
         navigationItem.setRightBarButtonItems([firstBarButtonItem, secondBarButtonItem], animated: true)
     }
     
-    private func newImageViewWithImage(paramImage: UIImage?, paramFrame: CGRect) -> UIImageView {
+    private func newImageViewWithImage(paramImage: String, paramFrame: CGRect) -> UIImageView {
         let result = UIImageView(frame: paramFrame)
         result.contentMode = .scaleAspectFit
-        result.image = paramImage
+        result.image = UIImage(named: paramImage)
         return result
     }
     
@@ -279,64 +241,19 @@ final class ProductViewController: UIViewController {
             }
     }
     
-    private func createBlackCaseImage() {
-        guard productImage == Constants.blackCaseImage else { return }
-        let firstImage = newImageViewWithImage(paramImage: productImage,
-                                               paramFrame: Constants.firstRectImage)
-        caseScrollView.addSubview(firstImage)
-
-        let secondImage = newImageViewWithImage(paramImage: Constants.blackCaseOneImage,
-                                                paramFrame: Constants.secondRectImage)
-        caseScrollView.addSubview(secondImage)
-
-        let thirdImage = newImageViewWithImage(paramImage: Constants.blackCaseTwoImage,
-                                               paramFrame: Constants.thirdRectImage)
-        caseScrollView.addSubview(thirdImage)
-    }
-    
-    private func createWatchImage() {
-        guard productImage == Constants.watchImage else { return }
-        let firstImage = newImageViewWithImage(paramImage: productImage,
-                                               paramFrame: Constants.firstRectImage)
-        caseScrollView.addSubview(firstImage)
-        
-        let secondImage = newImageViewWithImage(paramImage: Constants.watchOneImage,
-                                                paramFrame: Constants.secondRectImage)
-        caseScrollView.addSubview(secondImage)
-        
-        let thirdImage = newImageViewWithImage(paramImage: Constants.watchTwoImage,
-                                               paramFrame: Constants.thirdRectImage)
-        caseScrollView.addSubview(thirdImage)
-    }
-    
-    private func createBrownCaseImage() {
-        guard productImage == Constants.brownCaseImage else { return }
-        let firstImage = newImageViewWithImage(paramImage: productImage,
-                                               paramFrame: Constants.firstRectImage)
-        caseScrollView.addSubview(firstImage)
-        
-        let secondImage = newImageViewWithImage(paramImage: Constants.brownCaseOneImage,
-                                                paramFrame: Constants.secondRectImage)
-        caseScrollView.addSubview(secondImage)
-        
-        let thirdImage = newImageViewWithImage(paramImage: Constants.brownCaseTwoImage,
-                                               paramFrame: Constants.thirdRectImage)
-        caseScrollView.addSubview(thirdImage)
-    }
-    
-    private func createIphoneCaseImage() {
-        guard productImage == Constants.iPhoneImage else { return }
-        let firstImage = newImageViewWithImage(paramImage: productImage,
-                                               paramFrame: Constants.firstRectImage)
-        caseScrollView.addSubview(firstImage)
-        
-        let secondImage = newImageViewWithImage(paramImage: Constants.iPhoneOneImage,
-                                                paramFrame: Constants.secondRectImage)
-        caseScrollView.addSubview(secondImage)
-        
-        let thirdImage = newImageViewWithImage(paramImage: Constants.iPhoneTwoImage,
-                                               paramFrame: Constants.thirdRectImage)
-        caseScrollView.addSubview(thirdImage)
+    private func createProductView(caseNameImage: [String]) -> UIScrollView {
+        let scrollViewRect = CGRect(x: 0, y: 160, width: view.bounds.width, height: 300)
+        let scrollView = UIScrollView(frame: scrollViewRect)
+        scrollView.isPagingEnabled = true
+        var imageViewRect = CGRect(x: 60, y: 0, width: 300, height: 300)
+        for nameImage in caseNameImage {
+            let imageView = newImageViewWithImage(paramImage: nameImage, paramFrame: imageViewRect)
+            imageViewRect.origin.x += imageViewRect.width + 110
+            scrollView.addSubview(imageView)
+        }
+        scrollView.contentSize = CGSize(width: scrollViewRect.width * CGFloat(caseNameImage.count) + 20,
+                                        height: 300 )
+        return scrollView
     }
 }
 

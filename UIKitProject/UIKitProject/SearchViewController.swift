@@ -33,6 +33,10 @@ final class SearchViewController: UIViewController {
         static let caseViewTwoTexePrice = "2 500.00 руб."
         static let caseViewThreeTexePrice = "3 500.00 руб."
         static let caseViewFourTexePrice = "80 000.00 руб."
+        static let caseOneNameImage = ["Image", "case2", "case3"]
+        static let caseTwoNameImage = ["4", "clock2", "1"]
+        static let caseThreeNameImage = ["2", "caseBrown2", "caseBrown3"]
+        static let caseFourNameImage = ["iphone", "iPhone2", "iphone 3"]
     }
     
     // MARK: - Visual Components
@@ -270,6 +274,14 @@ final class SearchViewController: UIViewController {
         return scrollView
     }()
     
+    // MARK: - Private Property
+    private let product = [(Constants.caseViewOneText, Constants.caseOneNameImage, Constants.caseViewOneTexePrice),
+                           (Constants.caseViewTwoText, Constants.caseTwoNameImage, Constants.caseViewTwoTexePrice),
+                           (Constants.caseViewThreeText,
+                            Constants.caseThreeNameImage, Constants.caseViewThreeTexePrice),
+                           (Constants.caseViewFourText, Constants.caseFourNameImage,
+                            Constants.caseViewFourTexePrice)]
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -310,38 +322,20 @@ final class SearchViewController: UIViewController {
     
     private func createTapRecognizer() {
         caseViewOneView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
-        caseViewOneView.tag = 1
+        caseViewOneView.tag = 0
         caseViewTwoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
-        caseViewTwoView.tag = 2
+        caseViewTwoView.tag = 1
         caseViewThreeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
-        caseViewThreeView.tag = 3
+        caseViewThreeView.tag = 2
         caseViewFourView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
-        caseViewFourView.tag = 4
+        caseViewFourView.tag = 3
     }
     
     // MARK: - Private objc Methods
     @objc private func tapAction(param: UIGestureRecognizer) {
+        guard let caseView = param.view?.tag else { return }
         let productViewController = ProductViewController()
-        switch param.view?.tag {
-        case 1:
-            productViewController.productName = Constants.caseViewOneText
-            productViewController.productImage = Constants.caseViewOneImage
-            productViewController.productPrice = Constants.caseViewOneTexePrice
-        case 2:
-            productViewController.productName = Constants.caseViewTwoText
-            productViewController.productImage = Constants.caseViewTwoImage
-            productViewController.productPrice = Constants.caseViewTwoTexePrice
-        case 3:
-            productViewController.productName = Constants.caseViewThreeText
-            productViewController.productImage = Constants.caseViewThreeImage
-            productViewController.productPrice = Constants.caseViewThreeTexePrice
-        case 4:
-            productViewController.productName = Constants.caseViewFourText
-            productViewController.productImage = Constants.caseViewFourImage
-            productViewController.productPrice = Constants.caseViewFourTexePrice
-        default:
-            break
-        }
+        productViewController.product = product[caseView]
         navigationController?.pushViewController(productViewController, animated: false)
     }
 }
