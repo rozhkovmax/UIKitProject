@@ -27,6 +27,16 @@ final class SearchViewController: UIViewController {
         static let caseViewTwoText = "Cпортивный ремешок Black Unity"
         static let caseViewThreeImage = UIImage(named: "2")
         static let caseViewThreeText = "Кожаный чехол для MacBook Pro 16 дюймов"
+        static let caseViewFourImage = UIImage(named: "iphone")
+        static let caseViewFourText = "iPhone 12 Pro"
+        static let caseViewOneTexePrice = "3 990.00 руб."
+        static let caseViewTwoTexePrice = "2 500.00 руб."
+        static let caseViewThreeTexePrice = "3 500.00 руб."
+        static let caseViewFourTexePrice = "80 000.00 руб."
+        static let caseOneNameImage = ["Image", "case2", "case3"]
+        static let caseTwoNameImage = ["4", "clock2", "1"]
+        static let caseThreeNameImage = ["2", "caseBrown2", "caseBrown3"]
+        static let caseFourNameImage = ["iphone", "iPhone2", "iphone 3"]
     }
     
     // MARK: - Visual Components
@@ -146,7 +156,7 @@ final class SearchViewController: UIViewController {
     
     private lazy var caseViewOneView: UIView = {
         let view = UIView()
-        view.frame = CGRect(x: 15, y: 255, width: 150, height: 200)
+        view.frame = CGRect(x: 5, y: 5, width: 150, height: 200)
         view.backgroundColor = .systemGray6
         view.layer.cornerRadius = 15
         view.layer.masksToBounds = true
@@ -155,7 +165,7 @@ final class SearchViewController: UIViewController {
     
     private lazy var caseViewTwoView: UIView = {
         let view = UIView()
-        view.frame = CGRect(x: 180, y: 255, width: 150, height: 200)
+        view.frame = CGRect(x: 170, y: 5, width: 150, height: 200)
         view.backgroundColor = .systemGray6
         view.layer.cornerRadius = 15
         view.layer.masksToBounds = true
@@ -164,7 +174,16 @@ final class SearchViewController: UIViewController {
     
     private lazy var caseViewThreeView: UIView = {
         let view = UIView()
-        view.frame = CGRect(x: 345, y: 255, width: 150, height: 200)
+        view.frame = CGRect(x: 335, y: 5, width: 150, height: 200)
+        view.backgroundColor = .systemGray6
+        view.layer.cornerRadius = 15
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
+    private lazy var caseViewFourView: UIView = {
+        let view = UIView()
+        view.frame = CGRect(x: 500, y: 5, width: 150, height: 200)
         view.backgroundColor = .systemGray6
         view.layer.cornerRadius = 15
         view.layer.masksToBounds = true
@@ -173,7 +192,8 @@ final class SearchViewController: UIViewController {
     
     private lazy var caseViewOneLabel: UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 22, y: 100, width: 100, height: 100)
+        label.frame = CGRect(x: 0, y: 100, width: caseViewOneView.bounds.width, height: 100)
+        label.textAlignment = .center
         label.textColor = .white
         label.text = Constants.caseViewOneText
         label.numberOfLines = 0
@@ -183,7 +203,7 @@ final class SearchViewController: UIViewController {
     
     private lazy var caseViewOneImageView: UIImageView = {
         let image = UIImageView()
-        image.frame = CGRect(x: 15, y: 12, width: 110, height: 110)
+        image.frame = CGRect(x: 20, y: 12, width: 110, height: 110)
         image.image = Constants.caseViewOneImage
         image.contentMode = .scaleAspectFit
         return image
@@ -191,7 +211,8 @@ final class SearchViewController: UIViewController {
     
     private lazy var caseViewTwoLabel: UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 22, y: 100, width: 100, height: 100)
+        label.frame = CGRect(x: 0, y: 100, width: caseViewTwoView.bounds.width, height: 100)
+        label.textAlignment = .center
         label.textColor = .white
         label.text = Constants.caseViewTwoText
         label.numberOfLines = 0
@@ -201,7 +222,7 @@ final class SearchViewController: UIViewController {
     
     private lazy var caseViewTwoImageView: UIImageView = {
         let image = UIImageView()
-        image.frame = CGRect(x: 15, y: 12, width: 110, height: 110)
+        image.frame = CGRect(x: 20, y: 12, width: 110, height: 110)
         image.image = Constants.caseViewTwoImage
         image.contentMode = .scaleAspectFit
         return image
@@ -209,7 +230,8 @@ final class SearchViewController: UIViewController {
     
     private lazy var caseViewThreeLabel: UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 22, y: 100, width: 100, height: 100)
+        label.frame = CGRect(x: 0, y: 100, width: caseViewThreeView.bounds.width, height: 100)
+        label.textAlignment = .center
         label.textColor = .white
         label.text = Constants.caseViewThreeText
         label.numberOfLines = 0
@@ -219,11 +241,46 @@ final class SearchViewController: UIViewController {
     
     private lazy var caseViewThreeImageView: UIImageView = {
         let image = UIImageView()
-        image.frame = CGRect(x: 15, y: 12, width: 110, height: 110)
+        image.frame = CGRect(x: 20, y: 12, width: 110, height: 110)
         image.image = Constants.caseViewThreeImage
         image.contentMode = .scaleAspectFit
         return image
     }()
+    
+    private lazy var caseViewFourLabel: UILabel = {
+        let label = UILabel()
+        label.frame = CGRect(x: 0, y: 100, width: caseViewFourView.bounds.width, height: 100)
+        label.textAlignment = .center
+        label.textColor = .white
+        label.text = Constants.caseViewFourText
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 12, weight: .regular)
+        return label
+    }()
+    
+    private lazy var caseViewFourImageView: UIImageView = {
+        let image = UIImageView()
+        image.frame = CGRect(x: 20, y: 12, width: 110, height: 110)
+        image.image = Constants.caseViewFourImage
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
+    private lazy var caseScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.frame = CGRect(x: 10, y: 250, width: view.bounds.width, height: 210)
+        scrollView.indicatorStyle = .black
+        scrollView.contentSize = CGRect(x: 10, y: 250, width: 680, height: 200).size
+        return scrollView
+    }()
+    
+    // MARK: - Private Property
+    private let product = [(Constants.caseViewOneText, Constants.caseOneNameImage, Constants.caseViewOneTexePrice),
+                           (Constants.caseViewTwoText, Constants.caseTwoNameImage, Constants.caseViewTwoTexePrice),
+                           (Constants.caseViewThreeText,
+                            Constants.caseThreeNameImage, Constants.caseViewThreeTexePrice),
+                           (Constants.caseViewFourText, Constants.caseFourNameImage,
+                            Constants.caseViewFourTexePrice)]
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -246,43 +303,39 @@ final class SearchViewController: UIViewController {
         view.addSubview(beatsImageView)
         view.addSubview(iPhoneLabel)
         view.addSubview(iPhoneImageView)
-        view.addSubview(caseViewOneView)
-        view.addSubview(caseViewTwoView)
-        view.addSubview(caseViewThreeView)
         caseViewOneView.addSubview(caseViewOneLabel)
         caseViewOneView.addSubview(caseViewOneImageView)
         caseViewTwoView.addSubview(caseViewTwoLabel)
         caseViewTwoView.addSubview(caseViewTwoImageView)
         caseViewThreeView.addSubview(caseViewThreeLabel)
         caseViewThreeView.addSubview(caseViewThreeImageView)
+        caseViewFourView.addSubview(caseViewFourLabel)
+        caseViewFourView.addSubview(caseViewFourImageView)
         createTapRecognizer()
+        view.addSubview(caseScrollView)
+        caseScrollView.addSubview(caseViewOneView)
+        caseScrollView.addSubview(caseViewTwoView)
+        caseScrollView.addSubview(caseViewThreeView)
+        caseScrollView.addSubview(caseViewFourView)
+        navigationItem.backButtonTitle = Constants.searchName
     }
     
     private func createTapRecognizer() {
         caseViewOneView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
-        caseViewOneView.tag = 1
+        caseViewOneView.tag = 0
         caseViewTwoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
-        caseViewTwoView.tag = 2
+        caseViewTwoView.tag = 1
         caseViewThreeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
-        caseViewThreeView.tag = 3
+        caseViewThreeView.tag = 2
+        caseViewFourView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
+        caseViewFourView.tag = 3
     }
     
     // MARK: - Private objc Methods
     @objc private func tapAction(param: UIGestureRecognizer) {
+        guard let caseView = param.view?.tag else { return }
         let productViewController = ProductViewController()
-        switch param.view?.tag {
-        case 1:
-            productViewController.productName = Constants.caseViewOneText
-            productViewController.productImage = Constants.caseViewOneImage
-        case 2:
-            productViewController.productName = Constants.caseViewTwoText
-            productViewController.productImage = Constants.caseViewTwoImage
-        case 3:
-            productViewController.productName = Constants.caseViewThreeText
-            productViewController.productImage = Constants.caseViewThreeImage
-        default:
-            break
-        }
+        productViewController.product = product[caseView]
         navigationController?.pushViewController(productViewController, animated: false)
     }
 }
