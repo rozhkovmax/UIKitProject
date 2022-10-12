@@ -196,7 +196,7 @@ final class ProductViewController: UIViewController {
     private lazy var caseViewInScrollView = createProductView(caseNameImage: product.1)
     
     // MARK: - Public Properties
-    public var product: (String, [String], String, String) = ("", [""], "", "")
+    var product: (String, [String], String, String) = ("", [""], "", "")
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -226,13 +226,17 @@ final class ProductViewController: UIViewController {
         view.addSubview(basketLabel)
         view.addSubview(basketTextField)
         notificationKeyboard()
-        basketTextField.delegate = self
-        view.addSubview(caseViewInScrollView)
-        view.addSubview(detailButton)
+        createElements()
     }
     
     private func createBarButtonItem() {
         navigationItem.setRightBarButtonItems([firstBarButtonItem, secondBarButtonItem], animated: true)
+    }
+    
+    private func createElements() {
+        basketTextField.delegate = self
+        view.addSubview(caseViewInScrollView)
+        view.addSubview(detailButton)
     }
     
     private func newImageViewWithImage(paramImage: String, paramFrame: CGRect) -> UIImageView {
@@ -276,7 +280,7 @@ final class ProductViewController: UIViewController {
     // MARK: - Private objc Methods
     @objc private func tapWabAction() {
         let productWebViewController = ProductWebViewController()
-        productWebViewController.productUrl = product.3
+        productWebViewController.productUrlName = product.3
         present(productWebViewController, animated: false)
     }
     

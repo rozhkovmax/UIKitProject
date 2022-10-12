@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import WebKit
 /// Контроллер веб представления товара
 final class ProductWebViewController: UIViewController {
@@ -13,16 +14,16 @@ final class ProductWebViewController: UIViewController {
     // MARK: - Private Properties
     private let webView = WKWebView()
     private let toolBar = UIToolbar()
-    private let goBackItem = UIBarButtonItem(systemItem: .rewind)
-    private let goForwardItem = UIBarButtonItem(systemItem: .fastForward)
-    private let refreshItem = UIBarButtonItem(systemItem: .refresh)
-    private let space = UIBarButtonItem(systemItem: .flexibleSpace)
-    private let shareItem = UIBarButtonItem(systemItem: .action)
+    private let goBackBarButtonItem = UIBarButtonItem(systemItem: .rewind)
+    private let goForwardBarButtonItem = UIBarButtonItem(systemItem: .fastForward)
+    private let refreshBarButtonItem = UIBarButtonItem(systemItem: .refresh)
+    private let spaceBarButtonItem = UIBarButtonItem(systemItem: .flexibleSpace)
+    private let shareBarButtonItem = UIBarButtonItem(systemItem: .action)
     private let progressView = UIProgressView()
     private var observer: NSKeyValueObservation?
     
     // MARK: - Public Properties
-    public var productUrl = ""
+    public var productUrlName = ""
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -47,7 +48,7 @@ final class ProductWebViewController: UIViewController {
     }
     
     private func createWebView() {
-        guard let url = URL(string: productUrl) else { return }
+        guard let url = URL(string: productUrlName) else { return }
         let request = URLRequest(url: url)
         webView.load(request)
         webView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
@@ -59,11 +60,12 @@ final class ProductWebViewController: UIViewController {
         toolBar.frame = CGRect(x: 0, y: 770, width: view.bounds.width, height: 50)
         toolBar.barTintColor = .systemGray5
         toolBar.isTranslucent = false
-        toolBar.items = [goBackItem, goForwardItem, space, shareItem, refreshItem]
-        goBackItem.action = #selector(goBackItemAction)
-        goForwardItem.action = #selector(goForwardItemAction)
-        refreshItem.action = #selector(refreshItemAction)
-        shareItem.action = #selector(shareItemAction)
+        toolBar.items = [goBackBarButtonItem, goForwardBarButtonItem, spaceBarButtonItem,
+                         shareBarButtonItem, refreshBarButtonItem]
+        goBackBarButtonItem.action = #selector(goBackItemAction)
+        goForwardBarButtonItem.action = #selector(goForwardItemAction)
+        refreshBarButtonItem.action = #selector(refreshItemAction)
+        shareBarButtonItem.action = #selector(shareItemAction)
         view.addSubview(toolBar)
     }
     
@@ -85,7 +87,7 @@ final class ProductWebViewController: UIViewController {
     }
     
     @objc private func shareItemAction() {
-        guard let url = URL(string: productUrl) else { return }
+        guard let url = URL(string: productUrlName) else { return }
         let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         present(activityViewController, animated: true)
     }
@@ -94,7 +96,7 @@ final class ProductWebViewController: UIViewController {
 // MARK: - UIWebViewDelegate
 extension ProductWebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        goBackItem.isEnabled = webView.canGoBack
-        goForwardItem.isEnabled = webView.canGoForward
+        goBackBarButtonItem.isEnabled = webView.canGoBack
+        goForwardBarButtonItem.isEnabled = webView.canGoForward
     }
 }
