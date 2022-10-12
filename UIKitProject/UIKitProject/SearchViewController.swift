@@ -37,6 +37,10 @@ final class SearchViewController: UIViewController {
         static let caseTwoNameImage = ["4", "clock2", "1"]
         static let caseThreeNameImage = ["2", "caseBrown2", "caseBrown3"]
         static let caseFourNameImage = ["iphone", "iPhone2", "iphone 3"]
+        static let caseOneWebUrl = "https://re-store.ru/catalog/BST755118/"
+        static let caseTwoWebUrl = "https://re-store.ru/catalog/MJ4V3ZM-A/"
+        static let caseThreeWebUrl = "https://re-store.ru/catalog/NM7MDT0M00/"
+        static let caseFourWebUrl = "https://re-store.ru/catalog/MGDC3RU-A/"
     }
     
     // MARK: - Visual Components
@@ -275,12 +279,15 @@ final class SearchViewController: UIViewController {
     }()
     
     // MARK: - Private Property
-    private let product = [(Constants.caseViewOneText, Constants.caseOneNameImage, Constants.caseViewOneTexePrice),
-                           (Constants.caseViewTwoText, Constants.caseTwoNameImage, Constants.caseViewTwoTexePrice),
+    private let product = [(Constants.caseViewOneText, Constants.caseOneNameImage,
+                            Constants.caseViewOneTexePrice, Constants.caseOneWebUrl),
+                           (Constants.caseViewTwoText, Constants.caseTwoNameImage,
+                            Constants.caseViewTwoTexePrice, Constants.caseTwoWebUrl),
                            (Constants.caseViewThreeText,
-                            Constants.caseThreeNameImage, Constants.caseViewThreeTexePrice),
+                            Constants.caseThreeNameImage, Constants.caseViewThreeTexePrice,
+                            Constants.caseThreeWebUrl),
                            (Constants.caseViewFourText, Constants.caseFourNameImage,
-                            Constants.caseViewFourTexePrice)]
+                            Constants.caseViewFourTexePrice, Constants.caseFourWebUrl)]
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
