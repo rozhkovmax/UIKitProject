@@ -18,6 +18,8 @@
 		949C366728EF02170049BEDE /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C366628EF02170049BEDE /* BasketViewController.swift */; };
 		949C366928EF45010049BEDE /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C366828EF45010049BEDE /* ProductViewController.swift */; };
 		949C36AF28F4191B0049BEDE /* ProductWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C36AE28F4191B0049BEDE /* ProductWebViewController.swift */; };
+		949C36B128F568250049BEDE /* DetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C36B028F568250049BEDE /* DetailWebViewController.swift */; };
+		949C36B328F56AFF0049BEDE /* Detail.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 949C36B228F56AFF0049BEDE /* Detail.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		949C366628EF02170049BEDE /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		949C366828EF45010049BEDE /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		949C36AE28F4191B0049BEDE /* ProductWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWebViewController.swift; sourceTree = "<group>"; };
+		949C36B028F568250049BEDE /* DetailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWebViewController.swift; sourceTree = "<group>"; };
+		949C36B228F56AFF0049BEDE /* Detail.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Detail.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,11 +77,13 @@
 				949C366228EF01260049BEDE /* BuyViewController.swift */,
 				949C362F28EEBECD0049BEDE /* SearchViewController.swift */,
 				949C366828EF45010049BEDE /* ProductViewController.swift */,
+				949C36B028F568250049BEDE /* DetailWebViewController.swift */,
 				949C36AE28F4191B0049BEDE /* ProductWebViewController.swift */,
 				949C363128EEBECD0049BEDE /* Main.storyboard */,
 				949C363428EEBECD0049BEDE /* Assets.xcassets */,
 				949C363628EEBECD0049BEDE /* LaunchScreen.storyboard */,
 				949C363928EEBECD0049BEDE /* Info.plist */,
+				949C36B228F56AFF0049BEDE /* Detail.pdf */,
 			);
 			path = UIKitProject;
 			sourceTree = "<group>";
@@ -141,6 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				949C36B328F56AFF0049BEDE /* Detail.pdf in Resources */,
 				949C363828EEBECD0049BEDE /* LaunchScreen.storyboard in Resources */,
 				949C363528EEBECD0049BEDE /* Assets.xcassets in Resources */,
 				949C363328EEBECD0049BEDE /* Main.storyboard in Resources */,
@@ -180,6 +187,7 @@
 				949C366328EF01260049BEDE /* BuyViewController.swift in Sources */,
 				949C366928EF45010049BEDE /* ProductViewController.swift in Sources */,
 				949C362C28EEBECD0049BEDE /* AppDelegate.swift in Sources */,
+				949C36B128F568250049BEDE /* DetailWebViewController.swift in Sources */,
 				949C366528EF019A0049BEDE /* InPersonViewController.swift in Sources */,
 				949C362E28EEBECD0049BEDE /* SceneDelegate.swift in Sources */,
 				949C36AF28F4191B0049BEDE /* ProductWebViewController.swift in Sources */,

@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             guard let windowScene = scene as? UIWindowScene else { return }
             let window = UIWindow(windowScene: windowScene)
-            
+
             let searchVC = SearchViewController()
             searchVC.tabBarItem = UITabBarItem(title: "Поиск", image: UIImage(systemName: "magnifyingglass"), tag: 2)
             let buyVC = BuyViewController()

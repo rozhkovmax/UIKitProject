@@ -23,6 +23,7 @@ final class ProductViewController: UIViewController {
         static let orderLineTwoText = "Чт 25 Фев - Бесплатно"
         static let orderLineThreeText = "Варинт доставки для местоположения: 115533"
         static let placeholderTextField = "0"
+        static let detailText = "Подробно"
     }
     
     // MARK: - Visual Components
@@ -116,7 +117,7 @@ final class ProductViewController: UIViewController {
     
     private lazy var basketLabel: UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 100, y: 620, width: 170, height: 30)
+        label.frame = CGRect(x: 40, y: 620, width: 170, height: 30)
         label.text = Constants.basketTextLable
         label.font = .systemFont(ofSize: 17)
         return label
@@ -124,13 +125,26 @@ final class ProductViewController: UIViewController {
     
     private lazy var basketTextField: UITextField = {
         let textField = UITextField()
-        textField.frame = CGRect(x: 280, y: 620, width: 40, height: 30)
+        textField.frame = CGRect(x: 220, y: 620, width: 40, height: 30)
         textField.backgroundColor = .systemGray2
         textField.placeholder = Constants.placeholderTextField
         textField.textAlignment = .center
         textField.font = .systemFont(ofSize: 17)
         textField.keyboardType = .numbersAndPunctuation
         return textField
+    }()
+    
+    private lazy var detailButton: UIButton = {
+        let button = UIButton(type: .roundedRect)
+        button.frame = CGRect(x: 280, y: 620, width: 100, height: 30)
+        button.setTitle(Constants.detailText, for: .normal)
+        button.titleLabel?.font = UIFont(name: "", size: 17)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .link
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.addTarget(self, action: #selector(detailButtonAction), for: .touchUpInside)
+        return button
     }()
     
     private lazy var basketButton: UIButton = {
@@ -182,7 +196,7 @@ final class ProductViewController: UIViewController {
     private lazy var caseViewInScrollView = createProductView(caseNameImage: product.1)
     
     // MARK: - Public Properties
-    var product: (String, [String], String) = ("", [""], "")
+    var product: (String, [String], String, String) = ("", [""], "", "")
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -212,18 +226,25 @@ final class ProductViewController: UIViewController {
         view.addSubview(basketLabel)
         view.addSubview(basketTextField)
         notificationKeyboard()
-        basketTextField.delegate = self
-        view.addSubview(caseViewInScrollView)
+        createElements()
     }
     
     private func createBarButtonItem() {
         navigationItem.setRightBarButtonItems([firstBarButtonItem, secondBarButtonItem], animated: true)
     }
     
+    private func createElements() {
+        basketTextField.delegate = self
+        view.addSubview(caseViewInScrollView)
+        view.addSubview(detailButton)
+    }
+    
     private func newImageViewWithImage(paramImage: String, paramFrame: CGRect) -> UIImageView {
         let result = UIImageView(frame: paramFrame)
         result.contentMode = .scaleAspectFit
         result.image = UIImage(named: paramImage)
+        result.isUserInteractionEnabled = true
+        result.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapWabAction)))
         return result
     }
     
@@ -254,6 +275,18 @@ final class ProductViewController: UIViewController {
         scrollView.contentSize = CGSize(width: scrollViewRect.width * CGFloat(caseNameImage.count) + 20,
                                         height: 300 )
         return scrollView
+    }
+    
+    // MARK: - Private objc Methods
+    @objc private func tapWabAction() {
+        let productWebViewController = ProductWebViewController()
+        productWebViewController.productUrlName = product.3
+        present(productWebViewController, animated: false)
+    }
+    
+    @objc private func detailButtonAction() {
+        let detailWebViewController = DetailWebViewController()
+        present(detailWebViewController, animated: true)
     }
 }
 

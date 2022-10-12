@@ -37,6 +37,10 @@ final class SearchViewController: UIViewController {
         static let caseTwoNameImage = ["4", "clock2", "1"]
         static let caseThreeNameImage = ["2", "caseBrown2", "caseBrown3"]
         static let caseFourNameImage = ["iphone", "iPhone2", "iphone 3"]
+        static let caseOneWebUrlName = "https://re-store.ru/catalog/BST755118/"
+        static let caseTwoWebUrlName = "https://re-store.ru/catalog/MJ4V3ZM-A/"
+        static let caseThreeWebUrlName = "https://re-store.ru/catalog/NM7MDT0M00/"
+        static let caseFourWebUrlName = "https://re-store.ru/catalog/MGDC3RU-A/"
     }
     
     // MARK: - Visual Components
@@ -275,12 +279,15 @@ final class SearchViewController: UIViewController {
     }()
     
     // MARK: - Private Property
-    private let product = [(Constants.caseViewOneText, Constants.caseOneNameImage, Constants.caseViewOneTexePrice),
-                           (Constants.caseViewTwoText, Constants.caseTwoNameImage, Constants.caseViewTwoTexePrice),
+    private let products = [(Constants.caseViewOneText, Constants.caseOneNameImage,
+                            Constants.caseViewOneTexePrice, Constants.caseOneWebUrlName),
+                           (Constants.caseViewTwoText, Constants.caseTwoNameImage,
+                            Constants.caseViewTwoTexePrice, Constants.caseTwoWebUrlName),
                            (Constants.caseViewThreeText,
-                            Constants.caseThreeNameImage, Constants.caseViewThreeTexePrice),
+                            Constants.caseThreeNameImage, Constants.caseViewThreeTexePrice,
+                            Constants.caseThreeWebUrlName),
                            (Constants.caseViewFourText, Constants.caseFourNameImage,
-                            Constants.caseViewFourTexePrice)]
+                            Constants.caseViewFourTexePrice, Constants.caseFourWebUrlName)]
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -335,7 +342,7 @@ final class SearchViewController: UIViewController {
     @objc private func tapAction(param: UIGestureRecognizer) {
         guard let caseView = param.view?.tag else { return }
         let productViewController = ProductViewController()
-        productViewController.product = product[caseView]
+        productViewController.product = products[caseView]
         navigationController?.pushViewController(productViewController, animated: false)
     }
 }
