@@ -20,6 +20,8 @@
 		949C36AF28F4191B0049BEDE /* ProductWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C36AE28F4191B0049BEDE /* ProductWebViewController.swift */; };
 		949C36B128F568250049BEDE /* DetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C36B028F568250049BEDE /* DetailWebViewController.swift */; };
 		949C36B328F56AFF0049BEDE /* Detail.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 949C36B228F56AFF0049BEDE /* Detail.pdf */; };
+		949C36B528F7095E0049BEDE /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C36B428F7095E0049BEDE /* PageViewController.swift */; };
+		949C36B728F70C080049BEDE /* PerformanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C36B628F70C080049BEDE /* PerformanceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		949C36AE28F4191B0049BEDE /* ProductWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWebViewController.swift; sourceTree = "<group>"; };
 		949C36B028F568250049BEDE /* DetailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWebViewController.swift; sourceTree = "<group>"; };
 		949C36B228F56AFF0049BEDE /* Detail.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Detail.pdf; sourceTree = "<group>"; };
+		949C36B428F7095E0049BEDE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		949C36B628F70C080049BEDE /* PerformanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			children = (
 				949C362B28EEBECD0049BEDE /* AppDelegate.swift */,
 				949C362D28EEBECD0049BEDE /* SceneDelegate.swift */,
+				949C36B428F7095E0049BEDE /* PageViewController.swift */,
+				949C36B628F70C080049BEDE /* PerformanceViewController.swift */,
 				949C366628EF02170049BEDE /* BasketViewController.swift */,
 				949C366428EF019A0049BEDE /* InPersonViewController.swift */,
 				949C366228EF01260049BEDE /* BuyViewController.swift */,
@@ -183,6 +189,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				949C366728EF02170049BEDE /* BasketViewController.swift in Sources */,
+				949C36B528F7095E0049BEDE /* PageViewController.swift in Sources */,
+				949C36B728F70C080049BEDE /* PerformanceViewController.swift in Sources */,
 				949C363028EEBECD0049BEDE /* SearchViewController.swift in Sources */,
 				949C366328EF01260049BEDE /* BuyViewController.swift in Sources */,
 				949C366928EF45010049BEDE /* ProductViewController.swift in Sources */,
