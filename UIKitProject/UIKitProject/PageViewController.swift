@@ -139,8 +139,14 @@ final class PageViewController: UIPageViewController {
     }
     
     @objc func nextButtonAction() {
-        guard let currentPage = viewControllers?[0] else { return }
-        guard let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentPage) else { return }
+        guard let currentPage = viewControllers?.first,
+        let nextPage = dataSource?.pageViewController(self, viewControllerAfter: currentPage) else { return }
+        if nextPage == pages.last {
+            goButton.isHidden = false
+            skipButton.isHidden = true
+            nextButton.isHidden = true
+            hiddenBool(isHidden: true)
+        }
         setViewControllers([nextPage], direction: .forward, animated: true)
         pageControl.currentPage += 1
     }
@@ -151,20 +157,18 @@ extension PageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
-        if currentIndex > 0 {
-            return pages[currentIndex - 1]
-        }
-        return nil
+        guard let currentIndex = pages.firstIndex(of: viewController),
+              currentIndex > 0 else { return nil }
+        indexPage = currentIndex - 1
+        return pages[indexPage]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
-        if currentIndex < pages.count - 1 {
-            return pages[currentIndex + 1]
-        }
-        return nil
+        guard let currentIndex = pages.firstIndex(of: viewController),
+              currentIndex < pages.count - 1 else { return nil }
+        indexPage = currentIndex + 1
+        return pages[indexPage]
     }
 }
 
@@ -173,8 +177,8 @@ extension PageViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController,
                             didFinishAnimating finished: Bool, previousViewControllers: [UIViewController],
                             transitionCompleted completed: Bool) {
-        guard let viewControllers = pageViewController.viewControllers else { return }
-        guard let currentIndex = pages.firstIndex(of: viewControllers[0]) else { return }
+        guard let viewControllers = pageViewController.viewControllers?.first,
+              let currentIndex = pages.firstIndex(of: viewControllers) else { return }
         pageControl.currentPage = currentIndex
         lastView(index: currentIndex)
     }

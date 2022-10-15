@@ -81,7 +81,7 @@ final class PerformanceViewController: UIViewController {
     }
     
     private func transparency() {
-    oneLabel.alpha = 0
-    twoLabel.alpha = 0
+        oneLabel.alpha = 0
+        twoLabel.alpha = 0
     }
 }
